@@ -1,10 +1,10 @@
 import vaccinationCenterService from "../server/vaccination-center/vaccination-center.service.js"
 
 const vaccinationCenterArray = [
-    { name: "Bukit Batok CC", capacity: 1 },
-    { name: "Bukit Panjang CC", capacity: 2 },
-    { name: "Bukit Timah CC", capacity:1 },
-    { name: "Outram Park Polyclinic", capacity: 1 },
+    { name: "Bukit Batok CC", capacity: 10 },
+    { name: "Bukit Panjang CC", capacity: 30 },
+    { name: "Bukit Timah CC", capacity:20 },
+    { name: "Outram Park Polyclinic", capacity: 5 },
 ]
 
 const seedVaccinationCenter = async () => {    

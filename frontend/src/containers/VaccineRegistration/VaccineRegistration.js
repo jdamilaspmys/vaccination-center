@@ -77,11 +77,6 @@ export class VaccineRegistration extends Component
           vaccinationCenters: [ ...this.state.vaccinationCenters, ...res.data ],   
           booking: {
             ...this.state.booking,
-            // TODO : Only for TEST 
-            centerId: res.data[0]._id,
-            nric: 'XXXX',
-            name: 'YYYY'            
-            // TODO : Only for TEST 
           }          
         })        
       })
