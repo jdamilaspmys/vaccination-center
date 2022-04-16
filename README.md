@@ -12,11 +12,25 @@ Covid Vaccine Booking Web Application
 - Reactjs 
 - MongoDB
 
+Note : 
+
+- Following Diagram and UI include `Diagram-and-UI` Directory 
+1. Architecure
+2. Mock-UI and Actual UI Screenshot 
+3. Create Booking Flow Diagram 
+4. Update Booking Flow Diagram 
+
+
+- `POSTMAN` Collection include `postman` 
+1. Vaccination-Center Postman Collection 
+2. Local Env postman Collection 
+
 ## Getting Start 
 
 ## Pre Requirement 
 
-- NodeJs / Npm or Yarn 
+- NodeJs 
+- npm | yarn 
 - Mongodb 
 
 ### Start : Backend 
