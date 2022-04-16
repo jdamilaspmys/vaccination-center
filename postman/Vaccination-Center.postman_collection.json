@@ -1,0 +1,398 @@
+{
+	"info": {
+		"_postman_id": "bfe1990c-6ecd-4ac3-8881-c3c08cf62205",
+		"name": "Vaccination-Center",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Vaccination-Center",
+			"item": [
+				{
+					"name": "List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    if(jsonData.length){",
+									"        var oneRecord = jsonData[0]",
+									"        pm.environment.set(\"VACCINATION_CENTER_ID\", oneRecord._id);",
+									"    }    ",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/vaccination-center",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"vaccination-center"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"name\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/vaccination-center/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"vaccination-center",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{VACCINATION_CENTER_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/api/booking",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Your test name\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    if(jsonData._id){",
+									"        pm.environment.set(\"BOOKING_ID\", jsonData._id);",
+									"    }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nric\": \"F123456\",\n    \"name\": \"J KANKJI\",\n    \"centerId\": \"{{VACCINATION_CENTER_ID}}\",\n    \"date\": \"2022-04-25T00:00:00.000Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/booking",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"booking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Name\",\n    \"centerId\": \"{{VACCINATION_CENTER_ID}}\",\n    \"startTime\": \"2022-04-13T06:51:26.053Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/booking/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"booking",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{BOOKING_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nric\": \"F123456\",\n    \"name\": \"J KANKJI  - UPDATE\",\n    \"centerId\": \"{{VACCINATION_CENTER_ID}}\",\n    \"date\": \"2022-04-26T00:00:00.000Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/booking/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"booking",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{BOOKING_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete By Id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"nric\": \"2783784jsd\",\n    \"name\": \"NEW RE 01\",\n    \"centerId\": \"{{VACCINATION_CENTER_ID}}\",\n    \"time\": \"2022-04-15T04:51:16.054Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/booking/:id",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"booking",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{BOOKING_ID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Health-Check",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/api/health-check",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"api",
+						"health-check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Not Found",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASE_URL}}/not-found",
+					"host": [
+						"{{BASE_URL}}"
+					],
+					"path": [
+						"not-found"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
